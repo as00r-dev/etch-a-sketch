@@ -1,8 +1,8 @@
 //select Elements
 const WRAPPER = document.querySelector(".wrapper");
 const ROOT = document.querySelector(":root");
-const SELECT = document.querySelector("select");
-const BUTTON = document.querySelector("button");
+const GRID_SIZE = document.querySelector("select#grid-size");
+const COLOR_MODE = document.querySelector("select#color-mode");
 
 //Generate Squares
 function generateSquares(gridWidth) {
@@ -22,25 +22,45 @@ function clearSquares() {
 	WRAPPER.innerHTML = "";
 }
 //generate a random color
-function generateColor() {
+function generateHue() {
 	const hue = Math.round(Math.random() * 360);
 	return hue;
 }
 
+function generateLightness() {
+	const lightness = Math.round(Math.random() * 50);
+	return lightness;
+}
+
 //add random color to square on hover
 function addColor(e) {
-	const hue = generateColor();
-	e.target.style.backgroundColor = `hsl(${hue},100%,50%)`;
+	const hue = generateHue();
+	const lightness = generateLightness();
+	const mode = COLOR_MODE.value;
+	switch (mode) {
+		case "dark":
+			e.target.style.backgroundColor = "#121212";
+			break;
+		case "rainbow":
+			e.target.style.backgroundColor = `hsl(${hue},100%,50%)`;
+			break;
+		case "fun-dark":
+			e.target.style.backgroundColor = `hsl(0,0%,${lightness}%)`;
+			break;
+		default:
+			e.target.style.backgroundColor = "#121212";
+			break;
+	}
 }
 
-//handle click
-function clickHandler() {
+//resize grid
+function resize() {
 	clearSquares();
-	generateSquares(SELECT.value);
+	generateSquares(GRID_SIZE.value);
 }
 
-//change grid size when button clicked
-BUTTON.addEventListener("click", clickHandler);
+//change grid size when select
+GRID_SIZE.addEventListener("click", resize);
 
 //default 16x16 squares
 generateSquares(16);
