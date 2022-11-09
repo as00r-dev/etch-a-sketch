@@ -9,9 +9,16 @@
 		<script src="./script.js" defer></script>
 	</head>
 	<body>
-		<div class="wrapper"></div>
-		<div class="small-screen-warning">
-			<p>We're sorry. This is not usable in your screen.</p>
+		<div class="options-wrapper">
+			<select name="grid-size" id="grid-size">
+				<option selected disabled>Choose Grid Size</option>
+				<option value="8">8x8</option>
+				<option value="16">16x16</option>
+				<option value="32">32x32</option>
+				<option value="64">64x64</option>
+			</select>
+			<button>Change</button>
 		</div>
+		<div class="wrapper"></div>
 	</body>
 </html>
