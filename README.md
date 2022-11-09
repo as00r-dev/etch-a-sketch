@@ -10,7 +10,7 @@ simple tool to create pixelated art.
 ### Installing
 
 In order to use, just clone this repo, and run `index.html`
-on any browser or just go to this link to check live version:- https://as00r-dev.github.io/rock-paper-scissor-odin/
+on any browser or just go to this link to check live version:- https://as00r-dev.github.io/etch-a-sketch/
 
 ### Folder structure
 
